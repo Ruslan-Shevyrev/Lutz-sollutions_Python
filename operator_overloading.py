@@ -9,7 +9,7 @@ class MyList:
         return MyList(self.list * x)
 
     def __getitem__(self, x, y=None):
-        if y==None:
+        if y is None:
             return self.list[x]
         else:
             return self.list[x:y]
@@ -25,6 +25,7 @@ class MyList:
 
     def __repr__(self):
         return repr(self.list)
+
 
 if __name__ == '__main__':
     x = MyList('test')
