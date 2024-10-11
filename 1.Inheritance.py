@@ -1,29 +1,25 @@
 class Adder:
-    def add(self, x, y):
-        return 'Not Implemented'
-
     def __init__(self, data=None):
         if data is None:
-            data = []
+            data = {}
         self.data = data
 
-    def __add__(self, arg):
-        return self.add(self.data, arg)
+    def __add__(self, x):
+        return 'Not Implemented'
 
 
 class ListAdder(Adder):
-    def add(self, x, y):
-        return x + y
+    def __add__(self, x):
+        return self.data + x
 
 
 class DictAdder(Adder):
-    def add(self, x, y):
-        d = {}
-        for i in x.keys(): d[i] = x[i]
-        for i in y.keys(): d[i] = y[i]
+    def __add__(self, x):
+        d = self.data.copy()
+        d.update(x)
         return d
 
 
-c = DictAdder()
+c = DictAdder({1: 1})
 
-print(c.add({1:1}, {2:2}))
+print(c + {2: 2})
