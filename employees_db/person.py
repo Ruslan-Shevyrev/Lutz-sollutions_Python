@@ -17,6 +17,6 @@ if __name__ == '__main__':
     sue = Person('Sue Jones', 40, 40000, 'hardware engineer')
     print(bob.last_name())
     print(sue.last_name())
-    print('Sue pay before raise: ' + str(sue.pay))
+    print('Sue\'s pay before raise: ' + str(sue.pay))
     sue.give_raise(.10)
-    print('Sue pay after raise: ' + str(sue.pay))
+    print('Sue\'s pay after raise: ' + str(sue.pay))
