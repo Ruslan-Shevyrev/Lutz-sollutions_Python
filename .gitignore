@@ -1,3 +1,4 @@
 /.idea/
 /__pycache__/
 /employees_db/db/
+/employees_db/__pycache__/
