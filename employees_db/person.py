@@ -5,6 +5,9 @@ class Person:
         self.pay = pay
         self.job = job
 
+    def __str__(self):
+        return '<%s => %s>' % (self.__class__.__name__, self.name)
+
     def last_name(self) -> str:
         return self.name.split()[-1]
 
@@ -15,6 +18,8 @@ class Person:
 if __name__ == '__main__':
     bob = Person('Bob Smith', 42, 30000, 'software engineer')
     sue = Person('Sue Jones', 40, 40000, 'hardware engineer')
+    print(bob)
+    print(sue)
     print(bob.last_name())
     print(sue.last_name())
     print('Sue\'s pay before raise: ' + str(sue.pay))
