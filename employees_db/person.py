@@ -16,8 +16,8 @@ class Person:
 
 
 if __name__ == '__main__':
-    bob = Person('Bob Smith', 42, 30000, 'software engineer')
-    sue = Person('Sue Jones', 40, 40000, 'hardware engineer')
+    bob = Person('Bob Smith', 42, 30000.0, 'software engineer')
+    sue = Person('Sue Jones', 40, 40000.0, 'hardware engineer')
     print(bob)
     print(sue)
     print(bob.last_name())
