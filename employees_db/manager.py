@@ -8,6 +8,7 @@ class Manager(Person):
 
 if __name__ == '__main__':
     tom = Manager('Tom Doe', 50, 50000, 'software engineer')
+    print(tom)
     print(tom.last_name())
     print('Tom\'s pay before raise: ' + str(tom.pay))
     tom.give_raise(.10)
