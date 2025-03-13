@@ -1,5 +1,6 @@
 class Person:
-    def __init__(self, name: str, age: int, pay: float = 0.0, job: str = None):
+    def __init__(self, pk: str, name: str, age: int, pay: float = 0.0, job: str = None):
+        self.pk = pk
         self.name = name
         self.age = age
         self.pay = pay
@@ -16,8 +17,8 @@ class Person:
 
 
 if __name__ == '__main__':
-    bob = Person('Bob Smith', 42, 30000.0, 'software engineer')
-    sue = Person('Sue Jones', 40, 40000.0, 'hardware engineer')
+    bob = Person('bob', 'Bob Smith', 42, 30000.0, 'software engineer')
+    sue = Person('sue', 'Sue Jones', 40, 40000.0, 'hardware engineer')
     print(bob)
     print(sue)
     print(bob.last_name())

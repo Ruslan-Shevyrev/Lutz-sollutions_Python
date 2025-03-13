@@ -3,15 +3,15 @@ from person import Person
 
 class Manager(Person):
 
-    def __init__(self, name: str, age: int, pay: float):
-        Person.__init__(self, name, age, pay, 'manager')
+    def __init__(self, pk: str, name: str, age: int, pay: float):
+        Person.__init__(self, pk, name, age, pay, 'manager')
 
     def give_raise(self, percent: float, bonus: float = 0.1):
         Person.give_raise(self, percent + bonus)
 
 
 if __name__ == '__main__':
-    tom = Manager('Tom Doe', 50, 50000.0)
+    tom = Manager('tom', 'Tom Doe', 50, 50000.0)
     print(tom)
     print(tom.last_name())
     print('Tom\'s pay before raise: ' + str(tom.pay))
