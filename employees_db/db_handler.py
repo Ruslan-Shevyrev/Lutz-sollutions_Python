@@ -39,7 +39,6 @@ def get_record(key: str) -> Person | None:
     try:
         return shelve.open(PATH)[key]
     except KeyError:
-        print('no key')
         return None
 
 
@@ -49,3 +48,7 @@ def save_record(record: Person):
     db[record.pk] = record
 
     db.close()
+
+
+def get_null_record() -> Person:
+    return Person(pk='', name='', age=0, job='', pay=0.0)
