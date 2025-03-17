@@ -55,5 +55,13 @@ def save_record(record: Person):
     db.close()
 
 
+def del_record(pk: str):
+    db = shelve.open(PATH)
+
+    del db[pk]
+
+    db.close()
+
+
 def get_null_record() -> Person:
     return Person(pk='', name='', age=0, job='', pay=0.0)

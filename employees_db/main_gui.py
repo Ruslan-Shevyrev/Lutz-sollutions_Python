@@ -24,6 +24,7 @@ def create_main_window():
     Button(window, text="Fetch", command=fetch_record).pack(side=LEFT)
     Button(window, text="Update", command=update_record).pack(side=LEFT)
     Button(window, text="Clear", command=clear_record).pack(side=LEFT)
+    Button(window, text="Delete", command=delete_record).pack(side=LEFT)
     Button(window, text="Quit", command=window.quit).pack(side=RIGHT)
     Button(window, text="Show all keys", command=all_keys_window).pack(side=RIGHT)
     return window
@@ -63,6 +64,12 @@ def fetch_record():
 def clear_record():
     for field in fields:
         entries[field].delete(0, END)
+
+
+def delete_record():
+    key = entries['pk'].get()
+    db_handler.del_record(key)
+    clear_record()
 
 
 def update_record():
