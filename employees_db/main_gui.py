@@ -1,5 +1,6 @@
 import db_handler
 from tkinter import *
+from tkinter import ttk
 
 fields = ('pk', 'name', 'age', 'job', 'pay')
 entries = {}
@@ -36,7 +37,15 @@ def all_keys_window():
     window = Toplevel()
     window.geometry("400x150")
     window.title('All keys')
-    Button(window, text="Close", command=lambda: dismiss(window)).pack(side=RIGHT)
+    keys = db_handler.get_keys()
+    tree = ttk.Treeview(window,
+                        columns=['Keys'], height=len(keys),
+                        show="headings", selectmode='none')
+    tree.heading('#1', text='Keys')
+    for item in keys:
+        tree.insert('', 'end', values=(item,))
+    tree.pack()
+    Button(master=window, text="Close", command=lambda: dismiss(window)).pack(side=RIGHT)
     window.grab_set()
     return window
 

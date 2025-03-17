@@ -31,6 +31,11 @@ def dump():
         print(key, '=>\n ', db[key].name, db[key].pay)
 
 
+def get_keys():
+    db = shelve.open(PATH)
+    keys = [db[key].pk for key in db]
+    return keys
+
 def get_db() -> shelve.open:
     return shelve.open(PATH)
 
