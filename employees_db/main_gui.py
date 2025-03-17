@@ -1,15 +1,14 @@
 import db_handler
 from tkinter import *
-from tkinter.messagebox import showerror
-
 
 fields = ('pk', 'name', 'age', 'job', 'pay')
 entries = {}
 
 
-def make_widgets():
+def create_main_window():
     global entries
     window = Tk()
+    window.geometry("400x150")
     window.title('Employees')
     form = Frame(window)
     form.pack()
@@ -23,7 +22,22 @@ def make_widgets():
 
     Button(window, text="Fetch", command=fetch_record).pack(side=LEFT)
     Button(window, text="Update", command=update_record).pack(side=LEFT)
+    Button(window, text="Show all keys", command=all_keys_window).pack(side=RIGHT)
     Button(window, text="Quit", command=window.quit).pack(side=RIGHT)
+    return window
+
+
+def dismiss(window):
+    window.grab_release()
+    window.destroy()
+
+
+def all_keys_window():
+    window = Toplevel()
+    window.geometry("400x150")
+    window.title('All keys')
+    Button(window, text="Close", command=lambda: dismiss(window)).pack(side=RIGHT)
+    window.grab_set()
     return window
 
 
@@ -47,5 +61,5 @@ def update_record():
     db_handler.save_record(record)
 
 
-main_window = make_widgets()
+main_window = create_main_window()
 main_window.mainloop()
