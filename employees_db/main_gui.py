@@ -23,8 +23,9 @@ def create_main_window():
 
     Button(window, text="Fetch", command=fetch_record).pack(side=LEFT)
     Button(window, text="Update", command=update_record).pack(side=LEFT)
-    Button(window, text="Show all keys", command=all_keys_window).pack(side=RIGHT)
+    Button(window, text="Clear", command=clear_record).pack(side=LEFT)
     Button(window, text="Quit", command=window.quit).pack(side=RIGHT)
+    Button(window, text="Show all keys", command=all_keys_window).pack(side=RIGHT)
     return window
 
 
@@ -57,6 +58,11 @@ def fetch_record():
             entries[field].delete(0, END)
             if record is not None:
                 entries[field].insert(0, getattr(record, field))
+
+
+def clear_record():
+    for field in fields:
+        entries[field].delete(0, END)
 
 
 def update_record():
