@@ -12,4 +12,5 @@ def safe(callee, *pargs, **kargs):
 
 if __name__ == '__main__':
     import try_except
+
     safe(try_except.oops)
