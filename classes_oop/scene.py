@@ -26,7 +26,7 @@ class Parrot(Actor):
     name = 'parrot'
 
 
-class Scene():
+class Scene:
     def __init__(self):
         self.customer = Customer()
         self.clerk = Clerk()

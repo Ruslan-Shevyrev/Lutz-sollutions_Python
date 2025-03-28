@@ -2,28 +2,35 @@ class Lunch:
     def __init__(self):
         self.customer = Customer()
         self.employee = Employee()
-    def order(self, foodName):
-        self.customer.placeOrder(foodName, self.employee)
+
+    def order(self, food_name):
+        self.customer.place_order(food_name, self.employee)
+
     def result(self):
-        return self.customer.printFood()
+        return self.customer.print_food()
+
 
 class Customer:
     def __init__(self):
         self.food = None
 
-    def placeOrder(self, foodName, employee):
-        self.food = employee.takeOrder(foodName)
+    def place_order(self, food_name, employee):
+        self.food = employee.take_order(food_name)
 
-    def printFood(self):
+    def print_food(self):
         print(self.food.name)
 
+
 class Employee:
-    def takeOrder(self, foodName):
-        return Food(foodName)
+    @staticmethod
+    def take_order(food_name):
+        return Food(food_name)
+
 
 class Food:
     def __init__(self, name):
         self.name = name
+
 
 if __name__ == '__main__':
     x = Lunch()

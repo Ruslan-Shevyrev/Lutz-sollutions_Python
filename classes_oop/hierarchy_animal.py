@@ -20,6 +20,7 @@ class Cat(Mammal):
     def speak(self):
         print('Meow')
 
+
 class Primate(Mammal):
     def speak(self):
         print('Where I am?')

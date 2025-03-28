@@ -1,4 +1,4 @@
-from operator_overloading import MyList
+from classes_oop.overloading.operator_overloading import MyList
 
 
 class MyListSub(MyList):
