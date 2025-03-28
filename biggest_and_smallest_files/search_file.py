@@ -11,3 +11,21 @@ def search_in_one_dir(dir_name, count):
     all_sizes.sort()
     print(all_sizes[:count])
     print(all_sizes[-count:])
+
+
+def search_in_one_dir_rec(dir_name, count):
+    all_sizes = []
+    trace = False
+    for (this_dir, subs_here, files_here) in os.walk(dir_name):
+        if trace:
+            print(this_dir)
+        for file_name in files_here:
+            if file_name.endswith('.py'):
+                if trace:
+                    print('...', file_name)
+                full_name = os.path.join(this_dir, file_name)
+                full_size = os.path.getsize(full_name)
+                all_sizes.append((full_size, full_name))
+    all_sizes.sort()
+    print(all_sizes[:count])
+    print(all_sizes[-count:])
