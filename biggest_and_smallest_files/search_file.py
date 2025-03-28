@@ -2,7 +2,7 @@ import os
 import glob
 
 
-def search_in_one_dir(dir_name, count):
+def search_in_one_dir(dir_name: str, count: int):
     all_sizes = []
     all_py = glob.glob(dir_name + os.sep + '*.py')
     for file_name in all_py:
@@ -13,9 +13,8 @@ def search_in_one_dir(dir_name, count):
     print(all_sizes[-count:])
 
 
-def search_in_one_dir_rec(dir_name, count):
+def search_in_one_dir_rec(dir_name: str, count: int, trace: bool = False):
     all_sizes = []
-    trace = False
     for (this_dir, subs_here, files_here) in os.walk(dir_name):
         if trace:
             print(this_dir)
